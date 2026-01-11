@@ -32,9 +32,9 @@ package org.see.baseplate.models;
 
 import org.see.skf.annotations.Attribute;
 import org.see.skf.annotations.ObjectClass;
-import org.see.skf.impl.encoding.HLAunicodeStringCoder;
-import org.see.skf.model.AccessLevel;
-import org.see.skf.model.objects.UpdatableObjectInstance;
+import org.see.skf.util.encoding.HLAunicodeStringCoder;
+import org.see.skf.runtime.AccessLevel;
+import org.see.skf.core.UpdatableObjectInstance;
 import org.see.baseplate.encoding.SpaceTimeCoordinateStateCoder;
 import org.see.baseplate.types.SpaceTimeCoordinateState;
 

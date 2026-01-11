@@ -34,8 +34,8 @@ import org.apache.commons.geometry.euclidean.threed.Vector3D;
 import org.ejml.simple.SimpleMatrix;
 import org.see.skf.annotations.Attribute;
 import org.see.skf.annotations.ObjectClass;
-import org.see.skf.impl.encoding.HLAfloat64LECoder;
-import org.see.skf.model.AccessLevel;
+import org.see.skf.util.encoding.HLAfloat64LECoder;
+import org.see.skf.runtime.AccessLevel;
 import org.see.baseplate.encoding.SimpleMatrixCoder;
 import org.see.baseplate.encoding.Vector3DCoder;
 
