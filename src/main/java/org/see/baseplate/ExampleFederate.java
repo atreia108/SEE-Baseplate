@@ -30,11 +30,6 @@
 
 package org.see.baseplate;
 
-import hla.rti1516_2025.exceptions.*;
-import org.see.baseplate.models.DynamicalEntity;
-import org.see.baseplate.models.PhysicalEntity;
-import org.see.baseplate.models.PhysicalInterface;
-import org.see.baseplate.models.ReferenceFrame;
 import org.see.skf.conf.FederateConfiguration;
 import org.see.skf.core.SEEFederateAmbassador;
 import org.see.skf.core.SEELateJoinerFederate;
@@ -49,14 +44,14 @@ public class ExampleFederate extends SEELateJoinerFederate {
     }
 
     @Override
-    public void declareClasses() throws FederateNotExecutionMember, AttributeNotDefined, ObjectClassNotDefined, RestoreInProgress, NameNotFound, NotConnected, RTIinternalError, InvalidObjectClassHandle, SaveInProgress, InvalidInteractionClassHandle, InteractionClassNotDefined, FederateServiceInvocationsAreBeingReportedViaMOM {
+    public void declareClasses() {
         // Publish/Subscribe object and interaction classes here using methods inherited from the late joiner class.
         // Register the appropriate event listeners just before or at this stage to be notified when a remote object
         // instance is created or a certain interaction is received.
     }
 
     @Override
-    public void declareObjectInstances() throws FederateNotExecutionMember, ObjectClassNotPublished, ObjectClassNotDefined, RestoreInProgress, ObjectInstanceNotKnown, IllegalName, ObjectInstanceNameInUse, ObjectInstanceNameNotReserved, NotConnected, RTIinternalError, SaveInProgress {
+    public void declareObjectInstances() {
         // Create all the object instances pertinent to your federate and the federation execution at large.
     }
 
