@@ -6,10 +6,10 @@
 
     <groupId>org.see</groupId>
     <artifactId>baseplate</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>2026.0-SNAPSHOT</version>
 
     <name>SEE-Baseplate</name>
-    <url>https://www.github.com/atreia108/SEE-Baseplate</url>
+    <url>https://www.github.com/SMASH-Lab/SEE-Baseplate</url>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

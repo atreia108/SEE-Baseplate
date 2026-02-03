@@ -1,6 +1,6 @@
-# Simulation Exploration Experience (SEE) Starter Project
+# Simulation Exploration Experience (SEE) Baseplate
 
-This repository was created to ease getting started with developing HLA federates in the [Simulation Exploration Experience (SEE)](https://www.simulationexplorationexperience.org) program.
+This repository contains a template designed to ease getting started with developing HLA federates in the [Simulation Exploration Experience (SEE)](https://www.simulationexplorationexperience.org) program.
 It is intended to be used with the [SEE HLA Starter Kit](https://www.github.com/atreia108/SEE-HLA-Starter-Kit) and includes a basic federate, math and geometry utility libraries as well as pre-implemented SpaceFOM object, interaction, and encoding classes.
 
 ## Project Structure
@@ -54,7 +54,7 @@ If you want to add unit testing to your federate, the `src/test/java` directory 
 > [!NOTE]
 > This project structure can be modified to suit your requirements. The primary goal is to have it serve as a good starting point for developing HLA federates in SEE.
 
-## Setting Up
+## Installation
 
 First, clone the repository to your machine. Most dependencies should be resolved as soon as you load it into your IDE of choice (tested on Eclipse and IntelliJ).
 The Pitch pRTI libraries, however, are not publicly hosted so you have two options:
@@ -84,4 +84,12 @@ $ mvn install install:file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="se.pitch" -Dar
 $ mvn install install:file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="org.see" -DartifactId="skf" -Dversion="2.0.1" -Dpackaging=jar
 ```
 
-In case you want to learn more about this process, refer to the official documentation [here](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
+This process is adapted from the official documentation [here](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
+
+## Updating
+
+When fetching a new version of Baseplate, there is a chance it relies on a different version of the framework. In this case, you will have to repeat the process of linking the SKF JAR library.
+The same applies when upgrading to a new version of the Pitch pRTI: the pRTI JAR libraries have to be re-linked.
+
+If Maven is being used to manage the SKF and pRTI dependencies, make sure to run the `clean` and `install` operations to clear out old build data before doing so.
+Likewise, the pRTI dependencies have to be rebuilt and re-linked to the project.
