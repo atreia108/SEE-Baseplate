@@ -1,8 +1,6 @@
 /*****************************************************************
  SEE Baseplate - A starter project template for the SEE HLA
  Starter Kit Framework.
- in the context of the SEE (Simulation Exploration Experience)
- project.
  Copyright (c) 2026, Hridyanshu Aatreya - Modelling & Simulation
  Group (MSG) at Brunel University of London. All rights reserved.
 

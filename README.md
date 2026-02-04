@@ -1,7 +1,9 @@
 # Simulation Exploration Experience (SEE) Baseplate
 
 This repository contains a template designed to ease getting started with developing HLA federates in the [Simulation Exploration Experience (SEE)](https://www.simulationexplorationexperience.org) program.
-It is intended to be used with the [SEE HLA Starter Kit](https://www.github.com/atreia108/SEE-HLA-Starter-Kit) and includes a basic federate, math and geometry utility libraries as well as pre-implemented SpaceFOM object, interaction, and encoding classes.
+It is intended to be used with the [SEE HLA Starter Kit Framework](https://www.github.com/SMASH-Lab/SEE-HLA-Starter-Kit) (SKF) and includes
+a basic federate, math and geometry utility libraries, as well as implementations of the objects and interactions defined
+in the SpaceFOM standard. It even includes classes for encoding/decoding SpaceFOM data types.
 
 ## Project Structure
 
@@ -31,14 +33,13 @@ The project uses [Apache Maven](https://maven.apache.org/) as its build system a
 ```
 
 
-The `org.see.baseplate` is the root for all project code.
+The `org.see.baseplate` is the project root.
 Subfolders are structured with the following intent:
 * `encoding`: Coder classes that decode and encode HLA data types to and from their native Java equivalents.
 * `models`: Java class definitions of HLA object and interaction classes mentioned in the SpaceFOM. It includes just about everything defined in v1.0 of the standard.
-The object class attributes **have not been marked to be published/subscribed** by default, change it as needed for your federate.
 * `types`: Encapsulations of the data types defined in the SpaceFOM.
 
-Every SEE HLA Starter Kit simulation requires a configuration file (`*.conf` or `*.properties`) to start. An example is present in the `resources` directory.
+Every SKF simulation requires a configuration file (`*.conf` or `*.properties`) to start. An example is present in the `resources` directory.
 This **has to be changed** to match your test environment. If you plan to use any FOM module extensions to the SpaceFOM, place them in the `foms` directory and uncomment the `fomDirectory` parameter in the configuration. (*N.B. The FOMs can be placed anywhere, this is just how it has been set up by default*.)
 
 The `resources` directory is where supplementary files used by your federate will go,
@@ -63,7 +64,7 @@ The Pitch pRTI libraries, however, are not publicly hosted so you have two optio
 2. Generate the dependencies as third-party JARs
 in your local Maven repository. See below for instructions.
 
-The above also applies to the SEE HLA Starter Kit dependency. Either download a release version from [here](https://www.github.com/atreia108/SEE-HLA-Starter-Kit/releases) and link it to your project manually or generate it as a third-party JAR in your local Maven repository. 
+The above also applies to the SKF dependency. Download a release version from [here](https://www.github.com/SMASH-Lab/SEE-HLA-Starter-Kit/releases) and either link it to your project manually or generate it as a third-party JAR in your local Maven repository. 
 
 ### Generating Dependencies for Local Maven Repository
 
@@ -73,23 +74,23 @@ A third-party JAR library for Maven can be generated as follows:
 * There are three main dependencies we want: `prti1516-hla4.jar`, `prticore.jar`, and `booster1516.jar`. Run the following commands to generate the dependencies (**remember to enter the path to the JAR files for `-Dfile` and set `-Dversion` to the pRTI version you have installed**):
 
 ```shell
-$ mvn install install:file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="se.pitch" -DartifactId="prti1516-hla4" -Dversion="6.1.0" -Dpackaging=jar
-$ mvn install install:file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="se.pitch" -DartifactId="prticore" -Dversion="6.1.0" -Dpackaging=jar
-$ mvn install install:file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="se.pitch" -DartifactId="booster1516" -Dversion="6.1.0" -Dpackaging=jar
+$ mvn install:install-file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="se.pitch" -DartifactId="prti1516-hla4" -Dversion="6.1.0" -Dpackaging=jar
+$ mvn install:install-file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="se.pitch" -DartifactId="prticore" -Dversion="6.1.0" -Dpackaging=jar
+$ mvn install:install-file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="se.pitch" -DartifactId="booster1516" -Dversion="6.1.0" -Dpackaging=jar
 ```
 
-* If you want to use the SEE HLA Starter Kit as a Maven dependency as well, then download the latest release from GitHub and run the following command as before (**remember to set the correct pathname and version number**):
+* If you want to use the SEE HLA Starter Kit as a Maven dependency as well, then grab the latest release from GitHub and run the following command as before (**remember to set the correct pathname and version number**):
 
 ```shell
-$ mvn install install:file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="org.see" -DartifactId="skf" -Dversion="2.0.1" -Dpackaging=jar
+$ mvn install:install-file -Dfile="<PATH-TO-JAR-FILE>" -DgroupId="org.see" -DartifactId="skf" -Dversion="2.0.3" -Dpackaging=jar
 ```
 
-This process is adapted from the official documentation [here](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
+This process is adapted from the official Maven documentation [here](https://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
 
 ## Updating
 
 When fetching a new version of Baseplate, there is a chance it relies on a different version of the framework. In this case, you will have to repeat the process of linking the SKF JAR library.
 The same applies when upgrading to a new version of the Pitch pRTI: the pRTI JAR libraries have to be re-linked.
 
-If Maven is being used to manage the SKF and pRTI dependencies, make sure to run the `clean` and `install` operations to clear out old build data before doing so.
+If Maven is being used to manage the SKF and pRTI dependencies, make sure to run `mvn clean` and `mvn install` operations to clear out old build data before doing so.
 Likewise, the pRTI dependencies have to be rebuilt and re-linked to the project.
